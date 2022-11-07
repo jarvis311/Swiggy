@@ -1,0 +1,20 @@
+.cart{
+    margin-top: 50px;
+    width: 50%;
+}
+.cart_food_items{
+display: flex;
+justify-content: space-between;
+}
+.cart_food_title{
+    display: flex;
+}
+.cart-total, .cart_deliver_charge, .cart_total_pay{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_pay{
+    margin-top: 30px;
+    text-align: center;
+}

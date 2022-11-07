@@ -1,0 +1,44 @@
+.foodlist{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.foodlist_content{
+    display: flex;
+    flex-direction: column;
+}
+.foodlist_foodtitle{
+    font-size: 22px;
+    font-weight: 600;
+}
+.foodlist_price{
+    font-size: 18px;
+    font-weight: 500;
+}
+.foodlist_description{
+    font-size: 16px;
+    font-weight: 100;
+}
+.foodlist_bestseller{
+    justify-content: center;
+}
+.foodlist_bestseller > img{
+  margin-right: 10px ;
+}
+.foodlist_bestseller > span{
+    font-size: 16px;
+}
+.foodlist_cart_button{
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+    border: 1px solid black; 
+}
+.foodlist_cart_button > button{
+    border: none;
+}
+.foodlist_addcart_btn{
+    width: 6vw;
+    background: rgb(35, 230, 213);
+}

@@ -1,0 +1,28 @@
+.restaurantfood{
+    margin-top: 56px;
+}
+.restaurantfood_content{
+    display: flex;
+    flex-direction: flex;
+    justify-content: space-between;
+    background: rgb(231, 225, 225);
+    box-shadow: 5px 0px 5px rgb(119, 108, 108);
+    padding: 10px;
+}
+.restaurantfood_details{
+    margin-top: 35px;
+}
+.restaurantfood_content > img {
+    margin-left: 10px;
+    padding: 10px;
+}
+.restaurantfood_offer{
+    margin-top: 35px;
+    padding: 10px;
+
+}
+.restaurantfood_add_more_product{
+    position: absolute;
+    top: 25%;
+    left: 75%;
+}

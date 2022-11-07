@@ -1,0 +1,19 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+}
+.navbar_cart_quantity{
+    color: rgb(243, 243, 237);
+}
+.navbar_cart_quantity_number{
+    background: transparent;
+    text-align: center;
+    width: 20px;
+    border-radius: 100px;
+    background: rgb(218, 107, 5);
+    position: absolute;
+    top: 10%;
+    left: 98.5%;
+}
