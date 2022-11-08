@@ -10,7 +10,6 @@ export const fetchAllData = createAsyncThunk(
     const response = await axios.get(
       "http://localhost:5000/restaurant/get-restaurants"
     );
-    // console.log(response.data);
     return response.data;
   }
 );

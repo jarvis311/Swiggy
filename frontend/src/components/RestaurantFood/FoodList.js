@@ -2,14 +2,9 @@ import React from "react";
 import "./foodlist.css";
 import image1 from "../../images/pure_veg.png";
 import StarIcon from "@mui/icons-material/Star";
-import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 const FoodList = ({productData}) => {
 
-  const dispatch = useDispatch()
-
-  const handleAddToCart = () => {
-    
-  }
   return (
     <>
     {
@@ -26,7 +21,7 @@ const FoodList = ({productData}) => {
           <p className="foodlist_description">
             {item.product_decription}
           </p>
-          <button onClick={handleAddToCart} className="btn foodlist_addcart_btn">Add to cart</button>
+          <Link to={`/add-cart/${item.id}`} className="btn foodlist_addcart_btn">Add to cart</Link>
         </div>
         <div className="foodlist_image">
           <img
@@ -38,7 +33,7 @@ const FoodList = ({productData}) => {
       ))
     }
       
-      <hr />
+      <hr style={{width:'75%'}}/>
     </>
   );
 };

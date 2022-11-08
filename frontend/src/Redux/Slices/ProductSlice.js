@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 const initialState = {
-    products: []
+    products: [],
+    cartProduct: []
 }
 export const fetchAllData = createAsyncThunk(
     'product/fetchAllData',
     async (restaurantId) => {
       const response = await axios.get(`http://localhost:5000/product/get-product/${restaurantId}`)
-      console.log(response.data)
       return response.data
     }
   )
@@ -19,7 +19,11 @@ export const fetchAllData = createAsyncThunk(
 const productSlice = createSlice({
     name: 'product',
     initialState: initialState,
-
+    reducers: {
+        addtoCart: (state, action) =>  {
+            
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addCase(fetchAllData.pending, (state, action) => {

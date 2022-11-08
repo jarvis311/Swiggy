@@ -2,7 +2,8 @@
     margin-top: 10px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+
 }
 .foodlist_content{
     display: flex;

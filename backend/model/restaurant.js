@@ -16,7 +16,16 @@ const Product = require("./product");
         restaurant_decription: {
             type: DataTypes.TEXT,
             allowNull: false
+          },
+          restaurant_latitude: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+          },
+          restaurant_longitude: {
+            type: DataTypes.FLOAT,
+            allowNull: false
           }
+          
      });
     
     // Restaurant.hasMany(Product, { foreignKey:'restaurantId'})

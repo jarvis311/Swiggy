@@ -11,9 +11,8 @@ const RestaurantList = () => {
   }, [dispatch])
   
   const restaurantData = useSelector((state) => state.restaurant.restaurants);
-  console.log(restaurantData)
   const renderProductData =
-  restaurantData[0]?.map(item => (
+  restaurantData[0]?.map(item =>(
 
     <div key={item.id} className="card col-md-4 my-2 mx-2" style={{ width: "18rem" }}>
       <img

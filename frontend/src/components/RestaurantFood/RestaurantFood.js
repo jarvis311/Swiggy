@@ -8,6 +8,8 @@ import { fetchAllData } from "../../Redux/Slices/ProductSlice";
 const RestaurantFood = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+
+  const cartItem = useSelector(state => state.cart.product)
   useEffect(() => {
     console.log('data>>')
     dispatch(fetchAllData(id));
