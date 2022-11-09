@@ -21,7 +21,6 @@ const productSlice = createSlice({
     initialState: initialState,
     reducers: {
         addtoCart: (state, action) =>  {
-            
         }
     },
     extraReducers: (builder) => {

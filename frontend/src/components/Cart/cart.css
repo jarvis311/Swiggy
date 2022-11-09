@@ -1,19 +1,11 @@
-/* .cart {
-  margin-top: 50px;
+.cart {
+  margin-top: 150px;
   width: 20%;
-  position: absolute;
+  position: fixed;
   background: rgba(245, 235, 218, 0.63);
-  right: 10%;
+  right: 8%;
   border-radius: 1%;
   top: 28%;
-} */
-.cart {
-  margin-top: 50px;
-  width: 50%;
-  /* position: absolute;
-  top: 10%; */
-  background: rgba(245, 235, 218, 0.63);
-  border-radius: 1%;
 }
 .cart_food_items {
   display: flex;

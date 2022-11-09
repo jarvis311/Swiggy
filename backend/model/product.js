@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/sequelize");
 const Restaurant = require("./restaurant");
 
-const Product = sequelize.define("data", {
+const Product = sequelize.define("product", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -27,15 +27,5 @@ const Product = sequelize.define("data", {
 });
 
 // Product.belongsTo(Restaurant, { foreignKey:'restaurantId'})
-
-
-// sequelize
-//   .sync()
-//   .then(() => {
-//     console.log("Book table created successfully!");
-//   })
-//   .catch((error) => {
-//     console.error("Unable to create table : ", error);
-//   });
 
 module.exports = Product;

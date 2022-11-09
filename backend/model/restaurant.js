@@ -17,6 +17,11 @@ const Product = require("./product");
             type: DataTypes.TEXT,
             allowNull: false
           },
+          
+        restaurant_image: {
+            type: DataTypes.STRING,
+            allowNull: false
+          },
           restaurant_latitude: {
             type: DataTypes.FLOAT,
             allowNull: false

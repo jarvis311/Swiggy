@@ -3,3 +3,12 @@
     width: 100%;
     margin-top: 50px;
 }
+.card-body{
+    position: relative;
+    height: 25vh;
+}
+.order_now{
+    position: absolute;
+    bottom: 25px;
+    left: 75px;
+}

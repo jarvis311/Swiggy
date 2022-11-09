@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar/Navbar";
 import RestaurantList from "./Restaurants/RestaurantList";
 import { Routes, Route } from "react-router-dom";
@@ -8,14 +8,18 @@ import Cart from "./Cart/Cart";
 import Dashboard from "./Dashboard/Dashboard";
 import AddMoreProduct from "./Dashboard/AddMoreProduct";
 import OrderSuccess from "./OrderSuccess/OrderSuccess";
+import Searchbar from "./Searchbar/Searchbar";
 const Home = () => {
+  const [sTerm, setSTerm] = useState('')
+  // console.log('sTerm>>>>',sTerm)
   return (
     <div>
       <Navbar />
+      <Searchbar setSTerm={setSTerm}/>
       {/* <Map/> */}
       <div className="container">
         <Routes>
-          <Route path="/" element={<RestaurantList />} />
+          <Route path="/" element={<RestaurantList sTerm={sTerm}/>} />
           <Route path="/food/:id" element={<RestaurantFood />} />
           <Route path="/add-cart/:productId" element={<Cart />} />
           <Route path="/dashboard" element={<Dashboard />} />
