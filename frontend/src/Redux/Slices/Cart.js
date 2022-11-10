@@ -13,16 +13,17 @@ export const fetchSingleProduct = createAsyncThunk(
   }
 );
 
+export const removeCartProduct = createAsyncThunk(
+  "cart/removeCartItem",
+  async (id) => {
+    console.log("response.id", id);
+    return id;
+  }
+);
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: initialState,
-
-  reducers: {
-    removeCartItem: (state, action) => {
-      let newItem = action.payload
-      const existingItem = state.products.find(item => item.id === newItem?.id)
-      console.log("first>>", existingItem)
-    }},
 
   extraReducers: (builder) => {
     builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
@@ -54,6 +55,22 @@ const cartSlice = createSlice({
         ];
       }
     });
+
+    builder.addCase(removeCartProduct.fulfilled, (state, action) => {
+      const id = action.payload;
+      const products = [...state.products]
+      const array = products.find(item => item.id === id)
+      console.log('array>>>>', array)
+      console.log('id>>>>',id)
+      console.log('product>>>.',products)
+      const existingItem = state.products.find((item) => item.id === id);
+      if (existingItem.quantity === 1) {
+        state.products = state.products.filter((item) => item.id !== id);
+        } else {
+            existingItem.quantity--;
+            existingItem.totalPrice = existingItem.totalPrice - existingItem.product_price
+      }
+    })
   },
 });
 

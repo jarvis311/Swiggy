@@ -5,7 +5,7 @@ import FoodList from "./FoodList";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllData } from "../../Redux/Slices/ProductSlice";
-const RestaurantFood = () => {
+const RestaurantFood = ({sTerm}) => {
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,12 +30,9 @@ const RestaurantFood = () => {
               <LocalOfferIcon />
               <span>60% off up to ₹120 | Use code TRYNEW</span>
             </div>
-            <Link to="/add-product" className="restaurantfood_add_more_product">
-              <button className="btn btn-primary">Add More Product</button>
-            </Link>
           </div>
         </div>
-        <FoodList id={id} productData={productData} />
+        <FoodList id={id} productData={productData} sTerm={sTerm} />
       </div>
     </>
   );

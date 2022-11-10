@@ -20,10 +20,15 @@ const Product = sequelize.define("product", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
+  product_image: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
   restaurantId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  
 });
 
 // Product.belongsTo(Restaurant, { foreignKey:'restaurantId'})

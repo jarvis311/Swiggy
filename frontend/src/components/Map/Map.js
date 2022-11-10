@@ -1,19 +1,24 @@
 import React from "react";
 import "./map.css";
 import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
+import { useSelector } from "react-redux";
+
 const Map = () => {
+  const restaurantData = useSelector((state) => state.restaurant.restaurants);
+
   const position = [21.192258, 72.787535];
   return (
-    <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={position}></Marker>
-    </MapContainer>
+    <div className="map">
+      <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}></Marker>
+      </MapContainer>
+    </div>
   );
 };
-
 export default Map;
 
 // import React, { useEffect, useRef, useState } from 'react'
@@ -99,3 +104,34 @@ export default Map;
 // }
 
 // export default Maps
+
+// leafleft
+
+// const elementDiv = useRef();
+// console.log("ref>>>>>", elementDiv);
+// var map = L.map(document.getElementById("map")).setView(
+//   [28.238, 83.9956],
+//   11
+// );
+// var mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
+// L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+//   attribution: "Leaflet &copy; " + mapLink + ", contribution",
+//   maxZoom: 18,
+// }).addTo(map);
+
+// L.marker([28.238, 83.9956]).addTo(map);
+// map.on("click", function (e) {
+//   console.log(e);
+//   L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+//   L.Routing.control({
+// 	waypoints: [
+// 	  L.latLng(28.238, 83.9956),
+// 	  L.latLng(e.latlng.lat, e.latlng.lng),
+// 	],
+//   })
+// 	.on("routesfound", function (e) {
+// 	  var routes = e.routes;
+// 	  console.log(routes);
+// 	})
+// 	.addTo(map);
+// });

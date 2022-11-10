@@ -3,6 +3,9 @@
     top: 0;
     z-index: 1;
     width: 100%;
+    background: #FFFFFF;
+    color: black;
+    box-shadow: 10px 10px 5px FFFFFF;
 }
 .navbar_cart_quantity{
     color: rgb(243, 243, 237);
@@ -16,4 +19,9 @@
     position: absolute;
     top: 10%;
     left: 98.5%;
+}
+
+.navbar_iimg{
+    width: 20px;
+    margin-right: 20px;
 }

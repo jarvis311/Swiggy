@@ -3,8 +3,9 @@ import "./cart.css";
 import image1 from "../../images/pure_veg.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { cartAction, fetchSingleProduct } from "../../Redux/Slices/Cart";
-const Cart = ({data}) => {
+import { fetchSingleProduct, removeCartProduct } from "../../Redux/Slices/Cart";
+
+const Cart = ({data, style}) => {
   const dispatch = useDispatch();
   const cartProduct = useSelector((state) => state.cart.products);
   console.log("dataa>>>", data);
@@ -13,15 +14,14 @@ const Cart = ({data}) => {
     dispatch(fetchSingleProduct(data));
   };
 
-  const removeCartItem = (item) => {
-    dispatch(cartAction.removeCartItem(item))
+  const removeCartItem = (id) => {
+    dispatch(removeCartProduct(id))
   }
   let total = 0;
   const renderBilling = cartProduct?.map((item) => {
     total = total + item.totalPrice;
     return total
   });
-
   const renderCart = cartProduct?.map((item) => (
     <div key={item.id} className="cart_food_items">
       <div className="cart_food_title">
@@ -33,7 +33,7 @@ const Cart = ({data}) => {
         <h6>{item.product_name}</h6>
       </div>
       <div className="foodlist_cart_button">
-        <button onClick={() => removeCartItem(item)} className="minus">-</button>
+        <button onClick={() => removeCartItem(item.id)} className="minus">-</button>
         <span className="quantity">{item.quantity}</span>
         <button onClick={handleAddtoCart} className="plus">
           +
@@ -45,7 +45,7 @@ const Cart = ({data}) => {
     </div>
   ));
   return (
-    <div className="cart">
+    <div className="cart" style={{style}}>
       <div className="cart_restaurant_title">
         <h2>Cart</h2>
         <span>Adress of Restaurants</span>
@@ -65,7 +65,7 @@ const Cart = ({data}) => {
         </div>
         <div className="cart_total_pay">
           <p>Total pay</p>
-          {/* <span>₹ {item.totalPriice }</span> */}
+          <span>₹ {total + 20 }</span>
         </div>
         <hr />
         <div className="cart_pay">

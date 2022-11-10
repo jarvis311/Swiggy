@@ -11,16 +11,14 @@ import OrderSuccess from "./OrderSuccess/OrderSuccess";
 import Searchbar from "./Searchbar/Searchbar";
 const Home = () => {
   const [sTerm, setSTerm] = useState('')
-  // console.log('sTerm>>>>',sTerm)
   return (
     <div>
       <Navbar />
-      <Searchbar setSTerm={setSTerm}/>
       {/* <Map/> */}
       <div className="container">
         <Routes>
-          <Route path="/" element={<RestaurantList sTerm={sTerm}/>} />
-          <Route path="/food/:id" element={<RestaurantFood />} />
+          <Route path="/" element={ <> <Searchbar setSTerm={setSTerm}/><RestaurantList sTerm={sTerm}/> </>} />
+          <Route path="/food/:id" element={ <><Searchbar setSTerm={setSTerm}/><RestaurantFood sTerm={sTerm} /> </>} />
           <Route path="/add-cart/:productId" element={<Cart />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-product" element={<AddMoreProduct />} />
