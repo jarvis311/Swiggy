@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
   restaurants: [],
-  latlng: [],
+  restaurant:[],
 };
 
 export const fetchAllData = createAsyncThunk(
@@ -16,8 +16,17 @@ export const fetchAllData = createAsyncThunk(
 );
 export const fetchLanLng = createAsyncThunk(
   "product/fetchLatLng",
+  async (data) => {
+    return data;
+  }
+);
+export const fetchRestaurant = createAsyncThunk(
+  "restaurant/fetchRestaurant",
   async (id) => {
-    return id;
+    const response = await axios.get(
+      `http://localhost:5000/restaurant/get-restaurant/${id}`
+    );
+    return response.data;
   }
 );
 
@@ -29,19 +38,9 @@ const restaurantSlice = createSlice({
     builder.addCase(fetchAllData.fulfilled, (state, action) => {
       state.restaurants.push(action.payload);
     });
-    builder
-      .addCase(fetchLanLng.pending, (state, action) => {
-        state.latlng = [];
-      })
-      .addCase(fetchLanLng.fulfilled, (state, action) => {
-        const data = state.restaurants.find(
-          (item) => item.id === action.payload
-        );
-        state.latlng.push({
-          latitude: data.restaurant_latitude,
-          longitude: data.restaurant_longitude,
-        });
-      });
+    builder.addCase(fetchRestaurant.fulfilled, (state, action) => {
+      state.restaurant = action.payload
+    })
   },
 });
 

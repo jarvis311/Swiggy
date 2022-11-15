@@ -1,11 +1,12 @@
 .foodlist{
-    margin-top: 10px;
-    width: 80%;
+    margin-top: 30px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 .foodlist_content{
     display: flex;
+    margin-top: 10px;
     flex-direction: column;
 }
 .foodlist_foodtitle{
@@ -40,5 +41,6 @@
 }
 .foodlist_addcart_btn{
     width: 6vw;
-    background: rgb(35, 230, 213);
+    background: rgb(20, 124, 6);
+    color: white;
 }

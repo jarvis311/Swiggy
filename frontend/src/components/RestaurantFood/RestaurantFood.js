@@ -5,28 +5,40 @@ import FoodList from "./FoodList";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllData } from "../../Redux/Slices/ProductSlice";
-const RestaurantFood = ({sTerm}) => {
+import { fetchLanLng, fetchRestaurant } from "../../Redux/Slices/Restaurant";
+const RestaurantFood = ({ sTerm }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
+
+
   useEffect(() => {
-    console.log("data>>");
     dispatch(fetchAllData(id));
+    dispatch(fetchRestaurant(id))
   }, [dispatch, id]);
+  
+  const restaurant = useSelector(state => state.restaurant.restaurant)
+  // console.log('restaurant>>>>', restaurant)
   const productData = useSelector((state) => state.product.products);
   return (
     <>
       <div className="restaurantfood">
         <div className="restaurantfood_content">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ5_kHt0pQlzyfKOs-7EMSGtpLWE6d8mcsVx9MQmKw3DCQj4CJJsSbB86-lfz5JOOv60s&usqp=CAU"
+            src={restaurant?.restaurant_image}
             alt=""
+            style={{width:'18rem'}}
           />
           <div className="restaurantfood_details">
-            <h2>Restaurant Name</h2>
-            <span>Type of Restaurant</span>
+            <h2>{restaurant?.restaurant_name}</h2>
+            <span>{restaurant?.restaurant_type}</span>
+            <p>{restaurant?.restaurant_decription}</p>
           </div>
           <div className="restaurantfood_offer">
             <div className="restaurantfood_offer_">
+              <LocalOfferIcon />
+              <span>60% off up to ₹120 | Use code TRYNEW</span>
+              <br />
+              <br />
               <LocalOfferIcon />
               <span>60% off up to ₹120 | Use code TRYNEW</span>
             </div>

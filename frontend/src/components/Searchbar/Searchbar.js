@@ -11,7 +11,7 @@ const Searchbar = ({setSTerm}) => {
     <form className="d-flex searchbar container">
       <input 
         onChange={handleOnChange}
-        className="form-control me-2 my-2"
+        className="form-control me-2 my-4"
         type="search"
         placeholder="Search food or resturant.."
         aria-label="Search"

@@ -4,20 +4,30 @@ import "./oredrSucecss.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { useSelector } from "react-redux";
 import PayNow from "./PayNow";
-
+import { Link} from "react-router-dom";
 const OrderSuccess = () => {
   const cartProduct = useSelector((state) => state.cart.products);
-  console.log("first", cartProduct);
+  const restaurant = useSelector(state => state.restaurant.restaurant)
+  
+
+
+  const CartIsEmapty = (
+    <div className='empty_cart'>
+      <img style={{width:'28rem'}} src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" alt="" />
+      <h2>Your cart is empty</h2>
+      <Link to='/'>Add Food</Link>
+    </div>
+  )
   return (
     <>
       {cartProduct.length === 0 ? (
         <>
-          <h1 style={{marginTop:'80px'}}>No cart item hear</h1>
+          {CartIsEmapty}
         </>
       ) : (
       <>
         <div className="oredrSucecss">
-            <Map />
+            <Map lat={restaurant?.restaurant_latitude} lng={restaurant?.restaurant_longitude}/>
             <div className="address_details">
               <div className="address_content">
                 <div className="title_adresss">
@@ -41,7 +51,6 @@ const OrderSuccess = () => {
             </div>
           </div>
         <PayNow />
-
         </>
       )}
     </>

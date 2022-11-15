@@ -1,26 +1,35 @@
 .restaurantfood, .searchbar  {
-  margin-top: 50px;
+  margin-top: 5px;
 }
 .restaurantfood_content {
   display: flex;
   top: 30%;
   flex-direction: flex;
   justify-content: space-between;
-  background: rgb(231, 225, 225);
+  background: rgba(17, 8, 8, 0.877);
   box-shadow: 5px 0px 5px rgb(119, 108, 108);
   padding: 10px;
+  color: white;
 }
 .restaurantfood_details {
-  margin-top: 35px;
+  margin-top: 20px;
+  position: absolute;
+  left: 34%;
 }
 .restaurantfood_content > img {
   margin-left: 10px;
   padding: 10px;
 }
 .restaurantfood_offer {
-  margin-top: 35px;
+  margin-top: 10px;
+  margin-right: 10px;
   padding: 10px;
+  width: 20%;
+  border: solid;
+  height: 20vh;
+  border-width: thin;
 }
+
 .restaurantfood_add_more_product {
   position: absolute;
   top: 35%;
