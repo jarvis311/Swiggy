@@ -1,6 +1,11 @@
 .leaflet-container{
     margin-top: 90px;
-    width: 70%;
-    height: 40vh;
+    width: 100%;
+    height: 60vh;
     border: 2px solid transparent;
+}
+
+.location_title{
+    font-size: 22px;    
+    color: white;
 }

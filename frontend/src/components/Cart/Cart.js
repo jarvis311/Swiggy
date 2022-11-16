@@ -3,26 +3,27 @@ import "./cart.css";
 import image1 from "../../images/pure_veg.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import AddRoundedIcon from "@mui/icons-material/AddRounded";
-// import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import {
   cartAction,
   fetchSingleProduct,
   removeCartProduct,
 } from "../../Redux/Slices/Cart";
 import CloseIcon from "@mui/icons-material/Close";
+
 const Cart = () => {
+
   const dispatch = useDispatch();
   const cartProduct = useSelector((state) => state.cart.products);
-  // console.log("Cart>>>>", cartProduct);
+  const userAddress = useSelector((state) => state.user.userAddress);
+
   const handleAddtoCart = (item) => {
-    // console.log("Cart data hari ======", item);
     dispatch(fetchSingleProduct(item));
   };
 
   const removeCartItem = (id) => {
     dispatch(removeCartProduct(id));
   };
+  
   let total = 0;
   cartProduct?.map((item) => {
     total = total + item.totalPrice;
@@ -32,6 +33,7 @@ const Cart = () => {
   const handleCloseCart = () => {
     dispatch(cartAction.showCart());
   };
+  // --------------------------------------
   const renderCart = cartProduct?.map((item) => (
     <div key={item.id} className="cart_food_items">
       <div className="cart_food_title">
@@ -54,7 +56,11 @@ const Cart = () => {
         <h6>₹{item.product_price}</h6>
       </div>
     </div>
-  ));
+  ))
+  //'''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+  const distance = userAddress?.totalDistance / 1000;
+  const d = parseFloat(distance).toFixed(2);
 
   return (
     <div className="cart">
@@ -70,7 +76,6 @@ const Cart = () => {
       />
       <div className="cart_restaurant_title">
         <h2>Cart</h2>
-        {/* <span>Adress of Restaurants</span> */}
         <hr />
       </div>
       {renderCart.length === 0 ? (
@@ -89,7 +94,7 @@ const Cart = () => {
           <span>{total}</span>
         </div>
         <div className="cart_deliver_charge">
-          <p>Delivery Fee | 0.8 kms</p>
+          <p>Delivery Fee | {d} kms</p>
           <span>₹ 20</span>
         </div>
         <div className="cart_total_pay">

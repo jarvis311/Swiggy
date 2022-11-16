@@ -1,62 +1,153 @@
-.oredrSucecss{
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.order_success {
+  border: 0.1px solid rgb(219, 217, 217);
+  display: flex;
+  height: 82vh;
+  width: 100%;
+  margin-top: 150px;
 }
-.address_details{
-    margin-top: 100px;
-    width: 70%;
-    border:1px solid black;
-    background-color:#ffffff ;
+.map__ {
+  flex: 0.6;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-right: 1px solid rgb(192, 186, 186);
 }
-.title_adresss{
-    display: flex;
-    justify-content: baseline;
+.adress_details {
+  flex: 0.4;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
-.title_adresss > h3{
-    font-weight: 400;
-    margin-left: 10px;
-}
-.address_content{
-    margin-top: 20px;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;   
-}
-
-.current_address{
-    margin-left: 33px;
-}
-.duration{
-    margin-left: 33px;
-    
-}
-.delever_here{
-    margin-top: 20px;
-    margin-left: 33px;
-}
-.delever_here > button {
-    background: #60B246;
-}
-.cart_success{
-    position: absolute;
-    top: 20%;
+.adress_notes {
+  margin-top: 20px;
+  background: #89abe3ff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 0.5;
+  color: #fcf6f5ff;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
-.no_cart{
-    position: absolute;
-    top: 35%;
-    right: 3%;
+.adress_title {
+  font-size: 26px;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-.empty_cart{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.adress_distance {
+  font-size: 18px;
+  margin: 10px;
+  font-weight: 300;
 }
-.empty_cart > h2 {
-    text-align: center;
-    font-weight: 400;
-    margin-top: 10px;
-    
+
+.adrress_time {
+  font-size: 18px;
+  margin: 10px;
+  font-weight: 300;
+}
+.paynow {
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  width: 100%;
+  flex: 0.5;
+  background: rgb(241, 238, 238);
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+.product {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.product_details_title {
+  z-index: 8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-bottom: 1px solid black;
+}
+.product_details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.food_name {
+  font-size: 22px;
+}
+.price {
+  font-size: 20px;
+}
+.order_confirm {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  background: rgb(226, 219, 219);
+  border-width: 100%;
+}
+
+.order_confirm > span {
+  margin-left: 280px;
+}
+.quantity {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.total {
+  display: flex;
+  margin-left: 10px;
+  font-size: 22px;
+}
+.delivery_charges {
+  width: 100%;
+  color: white;
+  background: rgba(46, 46, 46, 0.829);
+  height: 30px;
+}
+.delivery_charges > span {
+  font-size: 18px;
+  font-weight: 300;
+  margin-left: 240px;
+}
+.empty_cart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.btn-success {
+  width: 13rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

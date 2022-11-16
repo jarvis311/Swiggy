@@ -9,7 +9,10 @@ import AddMoreProduct from "./Dashboard/AddMoreProduct";
 import OrderSuccess from "./OrderSuccess/OrderSuccess";
 import Searchbar from "./Searchbar/Searchbar";
 import { useSelector } from "react-redux";
-import EmptyCart from "./Cart/EmptyCart";
+import PayNow from "./OrderSuccess/PayNow";
+import Stripe from "./Stripe/Stripe";
+
+
 const Home = () => {
   const [sTerm, setSTerm] = useState('')
   const cartdata = useSelector((state) => state.cart.products);
@@ -20,6 +23,7 @@ const Home = () => {
     <div>
       <Navbar />
       {cartdata.length !== 0 && showCart ? <Cart data={cartSingleProduct}/> : ""}
+      <Stripe/>
       <div className="container">
         <Routes>
           <Route path="/" element={ <><Searchbar setSTerm={setSTerm}/><RestaurantList sTerm={sTerm}/> </>} />
@@ -28,7 +32,7 @@ const Home = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-product" element={<AddMoreProduct />} />
           <Route path="/oredr-success" element={<OrderSuccess />} />
-
+          <Route path="/oredr-confirn" element={<PayNow/>} />
         </Routes>
       </div>
     </div>

@@ -5,18 +5,17 @@ import FoodList from "./FoodList";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllData } from "../../Redux/Slices/ProductSlice";
-import { fetchLanLng, fetchRestaurant } from "../../Redux/Slices/Restaurant";
+import { fetchRestaurant } from "../../Redux/Slices/Restaurant";
 const RestaurantFood = ({ sTerm }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(fetchAllData(id));
-    dispatch(fetchRestaurant(id))
+    dispatch(fetchRestaurant(id));
   }, [dispatch, id]);
-  
-  const restaurant = useSelector(state => state.restaurant.restaurant)
+
+  const restaurant = useSelector((state) => state.restaurant.restaurant);
   // console.log('restaurant>>>>', restaurant)
   const productData = useSelector((state) => state.product.products);
   return (
@@ -26,7 +25,7 @@ const RestaurantFood = ({ sTerm }) => {
           <img
             src={restaurant?.restaurant_image}
             alt=""
-            style={{width:'18rem'}}
+            style={{ width: "18rem" }}
           />
           <div className="restaurantfood_details">
             <h2>{restaurant?.restaurant_name}</h2>

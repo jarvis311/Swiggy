@@ -1,18 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
-    LatLng : []
+    userAddress : []
 }
 const UserSlice = createSlice({
     name: 'user',
     initialState: initialState,
     reducers: {
-        userLatLng: (state, action) => {
-            state.LatLng = action.payload
+        userAddress: (state, action) => {
+            state.userAddress = action.payload
         }
     }
 })
 
 export const userAction = UserSlice.actions;
-export const userReducer = UserSlice.reducer
+export const userReducer = UserSlice.reducer;
